@@ -21,6 +21,7 @@ export default function ColumnGrid() {
             label={dimension.label}
             tone={dimension.key}
           />
+          <div className="story-list" aria-label={`${dimension.label} stories`} />
         </section>
       ))}
     </div>
