@@ -1,0 +1,54 @@
+# AI TriView Architecture Plan
+
+## Product Goal
+
+AI TriView is a single-page, static AI story dashboard with three side-by-side dimensions:
+UX, Hardware & Software, and Trending Now. It should read as a modern personal dashboard,
+not a traditional news site or live feed.
+
+## Proposed Module Structure
+
+Issue #1 should scaffold a lightweight web app, preferably a Vite + React + TypeScript
+frontend unless the implementation session has a stronger repo-specific reason to choose
+otherwise. Suggested structure:
+
+- `src/main.tsx`: application bootstrap.
+- `src/App.tsx`: top-level dashboard composition.
+- `src/styles.css`: global reset, design tokens, typography, responsive layout primitives.
+- `src/data/stories.ts`: static sample story data grouped by dimension.
+- `src/types.ts`: shared `Story` and `Dimension` types.
+- `src/components/PageShell.tsx`: centered full-width dashboard frame and page header.
+- `src/components/ColumnGrid.tsx`: three-column layout container.
+- `src/components/StoryColumn.tsx`: one dashboard column, including header and card list.
+- `src/components/ColumnHeader.tsx`: compact icon and accent label for each dimension.
+- `src/components/StoryCard.tsx`: reusable story card showing title, source, and one-line summary.
+
+## Shared Types
+
+- `Dimension`: stable key plus display label, accent color token, and icon identifier.
+- `Story`: `title`, `source`, `summary`, and optional `dimension` if stories are stored flat.
+- Prefer static typed data over runtime fetching. These issues describe a showcase, not a live feed.
+
+## Issue Dependencies
+
+1. Issue #1 creates the project, theme tokens, base styles, and build scripts.
+2. Issue #2 adds the root page shell and the `AI TriView` title area.
+3. Issue #3 adds the three-column grid in the required order.
+4. Issue #4 adds compact color/icon headers for each column.
+5. Issue #5 adds the reusable story card component.
+6. Issue #6 adds realistic static sample AI stories and renders cards in each column.
+7. Issue #7 tunes dashboard-level visual polish: spacing, typography, shadows, color balance.
+8. Issue #8 adds responsive behavior for narrower screens.
+9. Issue #9 performs end-to-end review, cleanup, and verification.
+
+## Key Design Decisions
+
+- Keep the UI data-driven: columns are rendered from a small dimensions config and story data.
+- Store accent colors as CSS custom properties so headers, borders, and card treatments stay consistent.
+- Use a light off-white dashboard background, restrained sans-serif typography, compact headers, and
+  subtle card shadows to support high information density with breathing room.
+- Do not include timestamps, live badges, tabs, or feed controls; the product is a static showcase.
+- For desktop and tablet widths, preserve the three-column intent so all dimensions remain visible.
+  On smaller screens, use responsive grid rules to avoid clipping and cramped cards.
+- If icons are needed, use a standard icon package such as `lucide-react` after issue #1 establishes
+  package tooling.
