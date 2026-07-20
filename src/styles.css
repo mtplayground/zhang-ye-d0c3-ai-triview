@@ -83,15 +83,15 @@ a {
   min-height: 100vh;
 }
 
-.app-foundation {
-  display: grid;
+.app-shell {
   min-height: 100vh;
-  place-items: center;
   padding: clamp(var(--space-5), 5vw, var(--space-8));
 }
 
-.foundation-panel {
-  width: min(100%, 42rem);
+.dashboard-frame {
+  width: min(100%, 88rem);
+  min-height: calc(100vh - clamp(var(--space-5), 5vw, var(--space-8)) * 2);
+  margin: 0 auto;
   padding: clamp(var(--space-5), 4vw, var(--space-7));
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -99,25 +99,31 @@ a {
   box-shadow: var(--shadow-subtle);
 }
 
-.foundation-kicker {
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-bottom: var(--space-5);
+}
+
+.page-kicker {
   margin: 0 0 var(--space-3);
-  color: var(--accent-ux);
+  color: var(--color-text-muted);
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
-.foundation-panel h1 {
+.page-header h1 {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: 1.75rem;
   line-height: 1;
   letter-spacing: 0;
 }
 
-.foundation-panel p {
-  max-width: 34rem;
-  margin: var(--space-4) 0 0;
-  color: var(--color-text-muted);
-  font-size: 1rem;
+.dashboard-host {
+  min-height: 28rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-5);
 }
