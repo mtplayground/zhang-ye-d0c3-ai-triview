@@ -1,10 +1,11 @@
 import { Flame, MonitorCog, MousePointer2 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import ColumnHeader from './ColumnHeader';
 import StoryCard from './StoryCard';
 import { storiesByDimension, type DimensionKey } from '../data/stories';
 
 const dimensions: Array<{
-  Icon: typeof MousePointer2;
+  Icon: LucideIcon;
   key: DimensionKey;
   label: string;
 }> = [
@@ -27,7 +28,11 @@ export default function ColumnGrid() {
             label={dimension.label}
             tone={dimension.key}
           />
-          <div className="story-list" aria-label={`${dimension.label} stories`}>
+          <div
+            className="story-list"
+            role="list"
+            aria-label={`${dimension.label} stories`}
+          >
             {storiesByDimension[dimension.key].map((story) => (
               <StoryCard
                 key={`${story.source}-${story.title}`}

@@ -6,7 +6,7 @@ type StoryCardProps = {
 
 export default function StoryCard({ source, summary, title }: StoryCardProps) {
   return (
-    <article className="story-card">
+    <article className="story-card" role="listitem">
       <p className="story-card__source">{source}</p>
       <h2 className="story-card__title">{title}</h2>
       <p className="story-card__summary">{summary}</p>
