@@ -1,7 +1,10 @@
+import { Flame, MonitorCog, MousePointer2 } from 'lucide-react';
+import ColumnHeader from './ColumnHeader';
+
 const dimensions = [
-  { key: 'ux', label: 'UX' },
-  { key: 'hardware-software', label: 'Hardware & Software' },
-  { key: 'trending-now', label: 'Trending Now' },
+  { key: 'ux', label: 'UX', Icon: MousePointer2 },
+  { key: 'hardware-software', label: 'Hardware & Software', Icon: MonitorCog },
+  { key: 'trending-now', label: 'Trending Now', Icon: Flame },
 ] as const;
 
 export default function ColumnGrid() {
@@ -9,10 +12,16 @@ export default function ColumnGrid() {
     <div className="column-grid" aria-label="AI story dimensions">
       {dimensions.map((dimension) => (
         <section
-          className="story-column"
+          className={`story-column story-column--${dimension.key}`}
           key={dimension.key}
           aria-label={dimension.label}
-        />
+        >
+          <ColumnHeader
+            Icon={dimension.Icon}
+            label={dimension.label}
+            tone={dimension.key}
+          />
+        </section>
       ))}
     </div>
   );
