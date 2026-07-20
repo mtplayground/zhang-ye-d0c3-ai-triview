@@ -138,7 +138,55 @@ a {
 .story-column {
   min-width: 0;
   min-height: 100%;
+  padding: var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--color-surface) 72%, var(--color-page));
+}
+
+.story-column--ux {
+  --column-accent: var(--accent-ux);
+  --column-label-background: var(--accent-ux);
+}
+
+.story-column--hardware-software {
+  --column-accent: var(--accent-software);
+  --column-label-background: linear-gradient(90deg, var(--accent-hardware), var(--accent-software));
+}
+
+.story-column--trending-now {
+  --column-accent: var(--accent-trending);
+  --column-label-background: var(--accent-trending);
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.column-header__icon {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1.75rem;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--column-accent) 28%, transparent);
+  border-radius: var(--radius-sm);
+  color: var(--column-accent);
+  background: color-mix(in srgb, var(--column-accent) 9%, transparent);
+}
+
+.column-header__label {
+  min-width: 0;
+  padding: 0.3125rem 0.625rem;
+  border-radius: var(--radius-sm);
+  background: var(--column-label-background);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
