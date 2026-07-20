@@ -1,3 +1,5 @@
+import ColumnGrid from './ColumnGrid';
+
 export default function PageShell() {
   return (
     <main className="app-shell" aria-label="AI TriView">
@@ -6,7 +8,9 @@ export default function PageShell() {
           <p className="page-kicker">Dashboard</p>
           <h1>AI TriView</h1>
         </header>
-        <section className="dashboard-host" aria-label="AI TriView dashboard" />
+        <section className="dashboard-host" aria-label="AI TriView dashboard">
+          <ColumnGrid />
+        </section>
       </div>
     </main>
   );
